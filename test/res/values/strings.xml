@@ -5,6 +5,12 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="bye_world">Goodbye world!</string>
-    <string name="button_text">Switch!</string>
+    <string name="button1">Count</string>
+    <string name="button2">Activity</string>
+    <string name="button3">Call</string>
+    <string name="button4">Wait</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="button1a">Main Activity</string>
+    <string name="button2a">Main Activity Clear Top</string>
 
 </resources>

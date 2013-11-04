@@ -1,7 +1,11 @@
 package com.example.test;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,8 +19,22 @@ public class MainActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		
-		Button button = (Button) findViewById(R.id.button);
-		button.setOnClickListener(this);
+		Button button1 = (Button) findViewById(R.id.button1);
+		button1.setOnClickListener(this);
+		
+		Button button2 = (Button) findViewById(R.id.button2);
+		button2.setOnClickListener(mActivityClickListener);
+		
+		Button button3 = (Button) findViewById(R.id.button3);
+		button3.setOnClickListener(mCallClickListener);
+		
+		Button button4 = (Button) findViewById(R.id.button4);
+		button4.setOnClickListener(mWaitClickListener);
+
+		TextView tv = (TextView) findViewById(R.id.textview);
+		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
+		int count = sp.getInt("count", 0);
+		tv.setText("Count: " + count);
     }
 
 
@@ -31,14 +49,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		TextView tv = (TextView) findViewById(R.id.textview);
 		
-		String hello = getResources().getString(R.string.hello_world);
-		String bye = getResources().getString(R.string.bye_world);
+		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
+		int count = sp.getInt("count", 0);
 		
-		if (hello.equals(tv.getText())) {
-			tv.setText(bye);
-		} else {
-			tv.setText(hello);
-		}
+		tv.setText("Count: " + count++);
+		
+		Editor editor = sp.edit();
+		editor.putInt("count", count);
+		editor.commit();
 	}
 	
 	@Override
@@ -50,6 +68,32 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		outState.putString("textviewtext", text);
 	}
+	
+	private OnClickListener mActivityClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+			intent.putExtra("text", "this is text");
+			startActivity(intent);
+		}
+	};
+	
+	private OnClickListener mCallClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(Intent.ACTION_CALL);
+			intent.setData(Uri.parse("tel:12345"));
+			startActivity(intent);
+		}
+	};
+	
+	private OnClickListener mWaitClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			WaitTask wt = new WaitTask((TextView) findViewById(R.id.textview));
+			wt.execute();
+		}
+	};
 	
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
