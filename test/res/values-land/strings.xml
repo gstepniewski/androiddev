@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">test</string>
+    <string name="app_name">myapp</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="bye_world">Goodbye world!</string>
-    <string name="button_text">Switch!</string>
+    <string name="button_text">Toggle!</string>
 
 </resources>
