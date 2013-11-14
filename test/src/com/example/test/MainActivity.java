@@ -1,6 +1,8 @@
 package com.example.test;
 
 import android.net.Uri;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +12,9 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -30,6 +34,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		Button button4 = (Button) findViewById(R.id.button4);
 		button4.setOnClickListener(mWaitClickListener);
+		
+		Button button5 = (Button) findViewById(R.id.button5);
+		button5.setOnClickListener(mInputClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
 		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
@@ -90,8 +97,30 @@ public class MainActivity extends Activity implements OnClickListener {
 	private OnClickListener mWaitClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			WaitTask wt = new WaitTask((TextView) findViewById(R.id.textview));
+			WaitTask wt = new WaitTask(MainActivity.this, (TextView) findViewById(R.id.textview));
 			wt.execute();
+		}
+	};
+	
+	private OnClickListener mInputClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			final Dialog dialog = new Dialog(MainActivity.this);
+			dialog.setContentView(R.layout.input_dialog);
+			
+			final EditText input = (EditText) dialog.findViewById(R.id.input_text);
+			
+			Button inputOk = (Button) dialog.findViewById(R.id.input_ok);
+			inputOk.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					String toast = "Input: " + input.getText().toString();
+					Toast.makeText(MainActivity.this, toast, Toast.LENGTH_LONG).show();
+					dialog.dismiss();
+				}
+			});
+			
+			dialog.show();
 		}
 	};
 	
