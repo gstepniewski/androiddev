@@ -30,6 +30,7 @@ public class SMSReceiver extends BroadcastReceiver {
 
 			Intent i = new Intent(context, SecondActivity.class);
 			i.putExtra("text", sms);
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			context.startActivity(i);
 		}
 	}
