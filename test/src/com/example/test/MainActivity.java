@@ -47,6 +47,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		Button button7 = (Button) findViewById(R.id.button7);
 		button7.setOnClickListener(mSQLiteClickListener);
+		
+		Button button8 = (Button) findViewById(R.id.button8);
+		button8.setOnClickListener(mSMSClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
 		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
@@ -157,6 +160,14 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		public void onClick(View v) {
 			Intent intent = new Intent(MainActivity.this, SQLiteActivity.class);
+			startActivity(intent);
+		}
+	};
+	
+	private OnClickListener mSMSClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(MainActivity.this, SMSActivity.class);
 			startActivity(intent);
 		}
 	};

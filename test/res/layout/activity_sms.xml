@@ -3,13 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <Button
+        android:id="@+id/add_student"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/add_student" >
 
         <LinearLayout
-            android:id="@+id/students_list"
+            android:id="@+id/sms_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >

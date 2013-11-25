@@ -12,6 +12,7 @@
     <string name="button5">Input</string>
     <string name="button6">Notification</string>
     <string name="button7">SQLite</string>
+    <string name="button8">SMS</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="title_activity_sqlite">SQLiteActivity</string>
     <string name="button1a">Main Activity</string>
