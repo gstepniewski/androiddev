@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +41,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		Button button6 = (Button) findViewById(R.id.button6);
 		button6.setOnClickListener(mGPSClickListener);
 		
-		Button button7 = (Button) findViewById(R.id.button7);
+		TextView button7 = (TextView) findViewById(R.id.button7);
 		button7.setOnClickListener(mSQLiteClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
