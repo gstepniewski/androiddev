@@ -1,7 +1,6 @@
 package com.example.test;
 
 import android.net.Uri;
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.app.Activity;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +40,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		Button button6 = (Button) findViewById(R.id.button6);
 		button6.setOnClickListener(mGPSClickListener);
+		
+		TextView button7 = (TextView) findViewById(R.id.button7);
+		button7.setOnClickListener(mSQLiteClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
 		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
@@ -132,6 +135,15 @@ public class MainActivity extends Activity implements OnClickListener {
 		public void onClick(View v) {
 			Intent intent = new Intent(MainActivity.this, GPSActivity.class);
 			startActivity(intent);
+		}
+	};
+	
+	private OnClickListener mSQLiteClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(MainActivity.this, SQLiteActivity.class);
+			startActivity(intent);
+			
 		}
 	};
 	
