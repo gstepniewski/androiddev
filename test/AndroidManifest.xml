@@ -10,6 +10,8 @@
     
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
 
     <application
         android:allowBackup="true"
@@ -28,6 +30,14 @@
         <activity
             android:name="com.example.test.SecondActivity"
             android:label="@string/title_activity_second" >
+        </activity>
+        <activity
+            android:name="com.example.test.SQLiteActivity"
+            android:label="@string/title_activity_sqlite" >
+        </activity>
+        <activity
+            android:name="com.example.test.SMSActivity"
+            android:label="@string/title_activity_sqlite" >
         </activity>
         <receiver android:name=".SMSReceiver" >
             <intent-filter>
