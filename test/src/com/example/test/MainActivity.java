@@ -1,7 +1,6 @@
 package com.example.test;
 
 import android.net.Uri;
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.app.Activity;

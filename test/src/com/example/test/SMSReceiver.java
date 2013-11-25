@@ -1,7 +1,6 @@
 package com.example.test;
 
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,8 +19,6 @@ public class SMSReceiver extends BroadcastReceiver {
 		}
 		
 		Object[] smsExtra = (Object[]) b.get("pdus");
-		
-		ContentResolver cr = context.getContentResolver();
 		
 		if (smsExtra.length > 0) {
 			SmsMessage smsMessage = SmsMessage.createFromPdu((byte[])smsExtra[0]);
