@@ -1,10 +1,14 @@
 package com.example.test;
 
 import android.net.Uri;
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -37,6 +41,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		Button button5 = (Button) findViewById(R.id.button5);
 		button5.setOnClickListener(mInputClickListener);
+		
+		Button button6 = (Button) findViewById(R.id.button6);
+		button6.setOnClickListener(mNotiClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
 		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
@@ -121,6 +128,25 @@ public class MainActivity extends Activity implements OnClickListener {
 			});
 			
 			dialog.show();
+		}
+	};
+	
+	private OnClickListener mNotiClickListener = new OnClickListener() {
+		@SuppressWarnings("deprecation")
+		@Override
+		public void onClick(View v) {
+			NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+			
+			String title = "Tytul";
+			String content = "content content content content content content";
+			String ticker = "ticker ticker ticker ticker ticker ticker ticker ticker ticker";
+			
+			Notification noti = new Notification(R.drawable.ic_launcher, ticker, System.currentTimeMillis());
+			PendingIntent npi = PendingIntent.getActivity(MainActivity.this, 0, new Intent(), 0);
+			
+			noti.setLatestEventInfo(MainActivity.this, title, content, npi);
+			
+			nm.notify(0, noti);
 		}
 	};
 	
