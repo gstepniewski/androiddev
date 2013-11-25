@@ -29,6 +29,10 @@
             android:name="com.example.test.SecondActivity"
             android:label="@string/title_activity_second" >
         </activity>
+        <activity
+            android:name="com.example.test.SQLiteActivity"
+            android:label="@string/title_activity_sqlite" >
+        </activity>
         <receiver android:name=".SMSReceiver" >
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
