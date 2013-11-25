@@ -39,6 +39,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		Button button6 = (Button) findViewById(R.id.button6);
 		button6.setOnClickListener(mGPSClickListener);
+		
+		Button button7 = (Button) findViewById(R.id.button7);
+		button7.setOnClickListener(mSQLiteClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
 		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
@@ -131,6 +134,15 @@ public class MainActivity extends Activity implements OnClickListener {
 		public void onClick(View v) {
 			Intent intent = new Intent(MainActivity.this, GPSActivity.class);
 			startActivity(intent);
+		}
+	};
+	
+	private OnClickListener mSQLiteClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(MainActivity.this, SQLiteActivity.class);
+			startActivity(intent);
+			
 		}
 	};
 	
