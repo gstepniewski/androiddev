@@ -49,6 +49,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		TextView button8 = (TextView) findViewById(R.id.button8);
 		button8.setOnClickListener(mNotiClickListener);
+		
+		TextView button9 = (TextView) findViewById(R.id.button9);
+		button9.setOnClickListener(mSMSClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
 		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
@@ -168,6 +171,14 @@ public class MainActivity extends Activity implements OnClickListener {
 			noti.setLatestEventInfo(MainActivity.this, title, content, npi);
 			
 			nm.notify(0, noti);
+		}
+	};
+	
+	private OnClickListener mSMSClickListener = new OnClickListener()  {
+		@Override
+		public void onClick(View v) {
+			Intent i = new Intent(MainActivity.this, SMSActivity.class);
+			startActivity(i);
 		}
 	};
 	
