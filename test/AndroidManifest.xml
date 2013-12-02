@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
+    <uses-feature android:name="android.hardware.location" android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -38,6 +41,10 @@
         <activity
             android:name="com.example.test.SMSActivity"
             android:label="@string/title_activity_sqlite" >
+        </activity>
+        <activity
+            android:name="com.example.test.GPSActivity"
+            android:label="@string/title_activity_gps" >
         </activity>
         <receiver android:name=".SMSReceiver" >
             <intent-filter>
