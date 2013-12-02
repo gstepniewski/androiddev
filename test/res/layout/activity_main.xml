@@ -66,6 +66,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/button7"
         android:text="@string/button8" />
+    
+    <Button 
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button8"
+        android:text="@string/button9" />
         
 
 </RelativeLayout>

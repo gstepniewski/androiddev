@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -50,6 +49,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		Button button8 = (Button) findViewById(R.id.button8);
 		button8.setOnClickListener(mSMSClickListener);
+		
+		Button button9 = (Button) findViewById(R.id.button9);
+		button9.setOnClickListener(mGPSClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
 		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
@@ -169,6 +171,14 @@ public class MainActivity extends Activity implements OnClickListener {
 		public void onClick(View v) {
 			Intent intent = new Intent(MainActivity.this, SMSActivity.class);
 			startActivity(intent);
+		}
+	};
+	
+	private OnClickListener mGPSClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent i = new Intent(MainActivity.this, GPSActivity.class);
+			startActivity(i);
 		}
 	};
 	
