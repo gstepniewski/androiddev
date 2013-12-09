@@ -52,6 +52,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		TextView button9 = (TextView) findViewById(R.id.button9);
 		button9.setOnClickListener(mSMSClickListener);
+		
+		TextView button10 = (TextView) findViewById(R.id.button10);
+		button10.setOnClickListener(mFragmentClickListener);
 
 		TextView tv = (TextView) findViewById(R.id.textview);
 		SharedPreferences sp = getSharedPreferences("mysharedprefences", MODE_PRIVATE);
@@ -178,6 +181,14 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		public void onClick(View v) {
 			Intent i = new Intent(MainActivity.this, SMSActivity.class);
+			startActivity(i);
+		}
+	};
+	
+	private OnClickListener mFragmentClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent i = new Intent(MainActivity.this, FragmentActivity.class);
 			startActivity(i);
 		}
 	};

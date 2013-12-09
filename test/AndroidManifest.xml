@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="18" />
     
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -37,6 +37,10 @@
         <activity
             android:name="com.example.test.SQLiteActivity"
             android:label="@string/title_activity_sqlite" >
+        </activity>
+        <activity
+            android:name="com.example.test.FragmentActivity"
+            android:label="@string/title_activity_fragment" >
         </activity>
         <receiver android:name=".SMSReceiver">
             <intent-filter>
